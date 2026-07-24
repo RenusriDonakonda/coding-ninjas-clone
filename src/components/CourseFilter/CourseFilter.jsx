@@ -1,32 +1,36 @@
-export default function CourseFilter({
-  selected,
-  setSelected,
-}) {
-  const categories = [
-    "All",
-    "Web",
-    "DSA",
-    "Java",
-    "Python",
-    "React",
-    "Data Science",
-  ];
+const categories = [
+  "All",
+  "Web Development",
+  "DSA",
+  "Data Science",
+  "Java",
+  "Python",
+  "React",
+];
 
+export default function CourseFilter({
+  category,
+  setCategory,
+}) {
   return (
-    <div className="flex flex-wrap justify-center gap-4 mb-10">
-      {categories.map((category) => (
+    <div className="flex flex-wrap justify-center gap-4 mt-10">
+
+      {categories.map((item) => (
+
         <button
-          key={category}
-          onClick={() => setSelected(category)}
-          className={`px-5 py-2 rounded-full border transition ${
-            selected === category
+          key={item}
+          onClick={() => setCategory(item)}
+          className={`px-5 py-2 rounded-full transition ${
+            category === item
               ? "bg-orange-500 text-white"
-              : "bg-white hover:bg-orange-100"
+              : "bg-gray-100 hover:bg-orange-100"
           }`}
         >
-          {category}
+          {item}
         </button>
+
       ))}
+
     </div>
   );
 }
