@@ -7,7 +7,6 @@ import heroImage from "../../assets/images/hero.png";
 export default function Hero() {
   return (
     <section className="bg-gradient-to-r from-orange-50 to-white py-16">
-
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* Left Content */}
@@ -15,6 +14,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -80 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="relative z-10"
         >
           <span className="bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold">
             India's Trusted Learning Platform
@@ -30,14 +30,12 @@ export default function Hero() {
 
           <Link
             to="/courses"
-            className="inline-block mt-8 bg-orange-500 text-white px-8 py-4 rounded-lg hover:bg-orange-600 transition"
+            className="inline-flex items-center justify-center mt-8 px-8 py-4 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition cursor-pointer"
           >
             {heroData.buttonText}
           </Link>
 
-          {/* Stats */}
           <div className="flex gap-10 mt-12">
-
             {heroData.stats.map((item) => (
               <div key={item.text}>
                 <h2 className="text-3xl font-bold text-orange-500">
@@ -49,9 +47,7 @@ export default function Hero() {
                 </p>
               </div>
             ))}
-
           </div>
-
         </motion.div>
 
         {/* Right Image */}
@@ -59,16 +55,16 @@ export default function Hero() {
           initial={{ opacity: 0, x: 80 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
+          className="relative z-0 pointer-events-none"
         >
           <img
             src={heroImage}
             alt="Coding Illustration"
-            className="w-full"
+            className="w-full select-none"
           />
         </motion.div>
 
       </div>
-
     </section>
   );
 }
