@@ -1,59 +1,59 @@
+import { motion } from "framer-motion";
 import companies from "../../data/companies";
 
 export default function Companies() {
   return (
-    <section className="py-20 bg-gray-50">
-
+    <motion.section
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+      className="py-20 bg-white"
+    >
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-4xl font-bold text-center">
-          Trusted by Learners Working At
-        </h2>
+        <div className="text-center">
 
-        <p className="text-center text-gray-500 mt-4">
-          Our students are placed in top product companies.
-        </p>
+          <span className="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold">
+            Hiring Partners
+          </span>
 
+          <h2 className="text-4xl font-bold mt-5">
+            Our Students Work At
+          </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-16">
+          <p className="text-gray-500 mt-4 text-lg">
+            Thousands of learners have been placed at India's leading
+            product-based companies.
+          </p>
+
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-16">
 
           {companies.map((company) => (
 
-            <div
+            <motion.div
               key={company.id}
-              className="
-                bg-white 
-                rounded-xl 
-                shadow-sm 
-                hover:shadow-lg 
-                transition 
-                duration-300 
-                flex 
-                items-center 
-                justify-center 
-                h-32
-                p-5
-              "
+              whileHover={{
+                scale: 1.08,
+                y: -8,
+              }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 flex items-center justify-center h-32 p-6"
             >
-
               <img
                 src={company.logo}
                 alt={company.name}
-                className="
-                  max-w-[120px]
-                  max-h-[70px]
-                  object-contain
-                "
+                className="max-h-12 object-contain grayscale hover:grayscale-0 transition duration-300"
               />
-
-            </div>
+            </motion.div>
 
           ))}
 
         </div>
 
       </div>
-
-    </section>
+    </motion.section>
   );
 }

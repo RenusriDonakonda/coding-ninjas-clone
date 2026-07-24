@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import {
   FaFacebook,
   FaInstagram,
@@ -8,17 +7,15 @@ import {
   FaGithub,
 } from "react-icons/fa";
 
-import { quickLinks, courses } from "./footerData";
-
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white pt-16">
+    <footer className="bg-gray-900 text-gray-300">
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 py-16">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 
-          {/* Logo */}
+          {/* Company */}
 
           <div>
 
@@ -26,10 +23,59 @@ export default function Footer() {
               Coding Ninjas
             </h2>
 
-            <p className="text-gray-400 mt-5 leading-7">
-              Learn programming from industry experts through
-              hands-on projects and structured courses.
+            <p className="mt-5 leading-7 text-gray-400">
+              Learn the most in-demand programming skills from industry
+              experts and build a successful software development career.
             </p>
+
+            <div className="flex gap-4 mt-6 text-2xl">
+
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-orange-500 transition"
+              >
+                <FaFacebook />
+              </a>
+
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-orange-500 transition"
+              >
+                <FaInstagram />
+              </a>
+
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-orange-500 transition"
+              >
+                <FaLinkedin />
+              </a>
+
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-orange-500 transition"
+              >
+                <FaYoutube />
+              </a>
+
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-orange-500 transition"
+              >
+                <FaGithub />
+              </a>
+
+            </div>
 
           </div>
 
@@ -37,51 +83,59 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="text-xl font-semibold mb-5">
+            <h3 className="text-xl font-semibold text-white mb-5">
               Quick Links
             </h3>
 
             <ul className="space-y-3">
 
-              {quickLinks.map((item) => (
+              <li>
+                <Link to="/" className="hover:text-orange-500">
+                  Home
+                </Link>
+              </li>
 
-                <li key={item.id}>
+              <li>
+                <Link to="/courses" className="hover:text-orange-500">
+                  Courses
+                </Link>
+              </li>
 
-                  <Link
-                    to={item.path}
-                    className="text-gray-400 hover:text-orange-500"
-                  >
-                    {item.title}
-                  </Link>
+              <li>
+                <Link to="/reviews" className="hover:text-orange-500">
+                  Reviews
+                </Link>
+              </li>
 
-                </li>
-
-              ))}
+              <li>
+                <Link to="/contact" className="hover:text-orange-500">
+                  Contact
+                </Link>
+              </li>
 
             </ul>
 
           </div>
 
-          {/* Courses */}
+          {/* Popular Courses */}
 
           <div>
 
-            <h3 className="text-xl font-semibold mb-5">
+            <h3 className="text-xl font-semibold text-white mb-5">
               Popular Courses
             </h3>
 
             <ul className="space-y-3">
 
-              {courses.map((course, index) => (
+              <li>Full Stack Development</li>
 
-                <li
-                  key={index}
-                  className="text-gray-400"
-                >
-                  {course}
-                </li>
+              <li>Data Structures & Algorithms</li>
 
-              ))}
+              <li>React Development</li>
+
+              <li>Python Programming</li>
+
+              <li>Data Science</li>
 
             </ul>
 
@@ -91,43 +145,23 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="text-xl font-semibold mb-5">
-              Contact
+            <h3 className="text-xl font-semibold text-white mb-5">
+              Contact Us
             </h3>
 
-            <p className="text-gray-400">
-              Hyderabad, Telangana
-            </p>
+            <div className="space-y-4">
 
-            <p className="text-gray-400 mt-3">
-              hello@example.com
-            </p>
+              <p>
+                📧 support@codingninjas.com
+              </p>
 
-            <p className="text-gray-400 mt-3">
-              +91 9876543210
-            </p>
+              <p>
+                📞 +91 98765 43210
+              </p>
 
-            <div className="flex gap-4 mt-6 text-2xl">
-
-              <a href="#">
-                <FaFacebook />
-              </a>
-
-              <a href="#">
-                <FaInstagram />
-              </a>
-
-              <a href="#">
-                <FaLinkedin />
-              </a>
-
-              <a href="#">
-                <FaYoutube />
-              </a>
-
-              <a href="#">
-                <FaGithub />
-              </a>
+              <p>
+                📍 Bengaluru, Karnataka, India
+              </p>
 
             </div>
 
@@ -135,11 +169,12 @@ export default function Footer() {
 
         </div>
 
-        <hr className="border-gray-700 my-10" />
+        {/* Bottom */}
 
-        <div className="text-center pb-8 text-gray-500">
+        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500">
 
-          © 2026 Coding Ninjas Clone. Built with React & Tailwind CSS.
+          © {new Date().getFullYear()} Coding Ninjas Clone • Built with React &
+          Tailwind CSS by Renusri Donakonda.
 
         </div>
 

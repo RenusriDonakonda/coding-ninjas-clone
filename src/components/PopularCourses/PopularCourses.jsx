@@ -1,69 +1,83 @@
 import { useState } from "react";
 import courses from "../../data/courses";
 import CourseCard from "../CourseCard/CourseCard";
-import CourseFilter from "../CourseFilter/CourseFilter";
+
+const categories = [
+  "All",
+  "Web Development",
+  "DSA",
+  "Data Science",
+  "Java",
+  "Python",
+  "React",
+];
 
 export default function PopularCourses() {
-  const [category, setCategory] = useState("All");
-  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredCourses = courses.filter((course) => {
-    const categoryMatch =
-      category === "All" || course.category === category;
-
-    const searchMatch =
-      course.title.toLowerCase().includes(search.toLowerCase()) ||
-      course.category.toLowerCase().includes(search.toLowerCase());
-
-    return categoryMatch && searchMatch;
-  });
+  const filteredCourses =
+    selectedCategory === "All"
+      ? courses
+      : courses.filter(
+          (course) => course.category === selectedCategory
+        );
 
   return (
     <section className="py-20 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-4xl font-bold text-center">
-          Popular Courses
-        </h2>
+        <div className="text-center">
 
-        <p className="text-center text-gray-500 mt-4">
-          Learn from industry experts and build job-ready skills.
-        </p>
+          <span className="text-orange-500 font-semibold uppercase tracking-wider">
+            Our Programs
+          </span>
 
-        {/* Search Bar */}
+          <h2 className="text-4xl font-bold mt-3">
+            Popular Courses
+          </h2>
 
-        <div className="max-w-lg mx-auto mt-10">
-
-          <input
-            type="text"
-            placeholder="🔍 Search courses..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full border rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            Learn the most in-demand skills from industry experts with
+            hands-on projects and placement support.
+          </p>
 
         </div>
 
-        <CourseFilter
-          category={category}
-          setCategory={setCategory}
-        />
+        {/* Filter Buttons */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="flex flex-wrap justify-center gap-4 mt-12">
 
-          {filteredCourses.length > 0 ? (
-            filteredCourses.map((course) => (
-              <CourseCard
-                key={course.id}
-                course={course}
-              />
-            ))
-          ) : (
-            <p className="col-span-full text-center text-gray-500">
-              No matching courses found.
-            </p>
-          )}
+          {categories.map((category) => (
+
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-3 rounded-full font-medium transition ${
+                selectedCategory === category
+                  ? "bg-orange-500 text-white shadow-lg"
+                  : "bg-gray-100 text-gray-700 hover:bg-orange-100"
+              }`}
+            >
+              {category}
+            </button>
+
+          ))}
+
+        </div>
+
+        {/* Course Cards */}
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+
+          {filteredCourses.map((course) => (
+
+            <CourseCard
+              key={course.id}
+              course={course}
+            />
+
+          ))}
 
         </div>
 
