@@ -3,7 +3,7 @@ import amazon from "../assets/images/amazon.jpg";
 import microsoft from "../assets/images/microsoft.jpg";
 import adobe from "../assets/images/adobe.jpg";
 import flipkart from "../assets/images/flipkart.jpg";
-import paytm from "../assets/images/paytm.jpg";
+
 
 const companies = [
   {
@@ -31,11 +31,7 @@ const companies = [
     name: "Flipkart",
     logo: flipkart,
   },
-  {
-    id: 6,
-    name: "Paytm",
-    logo: paytm,
-  },
+  
 ];
 
 export default companies;

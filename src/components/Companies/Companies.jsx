@@ -1,8 +1,9 @@
-import companies from "./companiesData";
+import companies from "../../data/companies";
 
 export default function Companies() {
   return (
     <section className="py-20 bg-gray-50">
+
       <div className="max-w-7xl mx-auto px-6">
 
         <h2 className="text-4xl font-bold text-center">
@@ -13,19 +14,36 @@ export default function Companies() {
           Our students are placed in top product companies.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-16">
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-16">
 
           {companies.map((company) => (
 
             <div
               key={company.id}
-              className="bg-white rounded-xl shadow hover:shadow-lg transition duration-300 flex items-center justify-center h-32"
+              className="
+                bg-white 
+                rounded-xl 
+                shadow-sm 
+                hover:shadow-lg 
+                transition 
+                duration-300 
+                flex 
+                items-center 
+                justify-center 
+                h-32
+                p-5
+              "
             >
 
               <img
                 src={company.logo}
                 alt={company.name}
-                className="w-28 object-contain"
+                className="
+                  max-w-[120px]
+                  max-h-[70px]
+                  object-contain
+                "
               />
 
             </div>
@@ -35,6 +53,7 @@ export default function Companies() {
         </div>
 
       </div>
+
     </section>
   );
 }
