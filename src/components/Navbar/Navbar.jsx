@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { FaTimes } from "react-icons/fa";
 
 const navLinks = [
   {
@@ -56,13 +57,21 @@ export default function Navbar() {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="px-5 py-2 border border-orange-500 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white transition">
-              Login
-            </button>
 
-            <button className="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition">
+            <Link
+              to="/contact"
+              className="px-5 py-2 border border-orange-500 rounded-lg text-orange-500 hover:bg-orange-500 hover:text-white transition"
+            >
+              Login
+            </Link>
+
+            <Link
+              to="/courses"
+              className="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
+            >
               Explore Courses
-            </button>
+            </Link>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -70,14 +79,16 @@ export default function Navbar() {
             className="md:hidden text-3xl"
             onClick={() => setOpen(!open)}
           >
-            {open ? <HiX /> : <HiMenuAlt3 />}
+            {open ? <FaTimes /> : <HiMenuAlt3 />}
           </button>
+
         </div>
       </div>
 
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white border-t shadow-lg">
+
           <div className="flex flex-col gap-5 p-6">
 
             {navLinks.map((item) => (
@@ -95,17 +106,27 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            <button className="border border-orange-500 text-orange-500 py-2 rounded-lg">
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="border border-orange-500 text-orange-500 py-2 rounded-lg text-center"
+            >
               Login
-            </button>
+            </Link>
 
-            <button className="bg-orange-500 text-white py-2 rounded-lg">
+            <Link
+              to="/courses"
+              onClick={() => setOpen(false)}
+              className="bg-orange-500 text-white py-2 rounded-lg text-center"
+            >
               Explore Courses
-            </button>
+            </Link>
 
           </div>
+
         </div>
       )}
+
     </header>
   );
 }

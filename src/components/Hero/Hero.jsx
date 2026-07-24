@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import heroData from "./heroData";
 import heroImage from "../../assets/images/hero.png";
 
 export default function Hero() {
   return (
     <section className="bg-gradient-to-r from-orange-50 to-white py-16">
+
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* Left Content */}
@@ -25,23 +28,30 @@ export default function Hero() {
             {heroData.subtitle}
           </p>
 
-          <button className="mt-8 bg-orange-500 text-white px-8 py-4 rounded-lg hover:bg-orange-600 transition">
+          <Link
+            to="/courses"
+            className="inline-block mt-8 bg-orange-500 text-white px-8 py-4 rounded-lg hover:bg-orange-600 transition"
+          >
             {heroData.buttonText}
-          </button>
+          </Link>
 
           {/* Stats */}
           <div className="flex gap-10 mt-12">
+
             {heroData.stats.map((item) => (
               <div key={item.text}>
                 <h2 className="text-3xl font-bold text-orange-500">
                   {item.number}
                 </h2>
+
                 <p className="text-gray-500">
                   {item.text}
                 </p>
               </div>
             ))}
+
           </div>
+
         </motion.div>
 
         {/* Right Image */}
@@ -58,6 +68,7 @@ export default function Hero() {
         </motion.div>
 
       </div>
+
     </section>
   );
 }
