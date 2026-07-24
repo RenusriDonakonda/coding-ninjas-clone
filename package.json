@@ -1,25 +1,31 @@
 {
-  "name": "coding-ninjas-clone",
+  "name": "slab-2",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
+
+  "homepage": "https://YOUR_USERNAME.github.io/Slab-2/",
+
   "type": "module",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
+
   "dependencies": {
-    "framer-motion": "^11.3.0",
+    "@vitejs/plugin-react": "latest",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.468.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.2.1",
-    "react-router-dom": "^6.26.0",
-    "swiper": "^11.1.9"
+    "react-router-dom": "^6.28.0"
   },
+
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "tailwindcss": "^4.0.0",
-    "vite": "^5.4.2"
+    "gh-pages": "^6.1.1",
+    "vite": "^5.4.0",
+    "tailwindcss": "^3.4.0"
   }
 }
